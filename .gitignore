@@ -1,0 +1,41 @@
+# Ignorer les répertoires de configuration de l'IDE
+.idea/
+.vscode/
+
+# Ignorer les répertoires des dépendances
+/vendor/
+node_modules/
+
+# Ignorer les fichiers de configuration de l'environnement
+.env
+.env.local
+.env.*.local
+
+# Ignorer les fichiers de cache
+*.log
+*.cache
+*.temp
+*.tmp
+
+# Ignorer les fichiers de base de données SQLite
+*.sqlite
+*.sqlite3
+
+# Ignorer les fichiers générés par Composer
+composer.lock
+
+# Ignorer les fichiers générés par PHPUnit
+phpunit.xml
+phpunit.xml.dist
+
+# Ignorer les répertoires de build
+/build/
+dist/
+
+# Ignorer les fichiers de débogage
+*.bak
+*.orig
+*.swp
+
+# Ignorer les fichiers d'images générées
+/public/images/uploads/
