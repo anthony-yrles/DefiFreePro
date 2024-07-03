@@ -1,0 +1,98 @@
+Classe User
+
+La classe User permet de créer des objets utilisateur avec différentes propriétés et d'effectuer diverses opérations comme l'initialisation, la gestion des propriétés et le hashage de mot de passe.
+Propriétés
+
+    $name : Le prénom de l'utilisateur.
+    $surname : Le nom de famille de l'utilisateur.
+    $email : L'adresse e-mail de l'utilisateur.
+    $password : Le mot de passe de l'utilisateur (non hashé à l'initialisation).
+    $emailValidated : Indique si l'e-mail de l'utilisateur a été validé (booléen).
+    $connected : Indique si l'utilisateur est connecté (booléen).
+    $status : Le statut de l'utilisateur (par défaut 'user').
+
+Méthodes
+
+    __construct(string $name, string $surname, string $email, string $password) :
+        Constructeur de la classe. Initialise les propriétés de l'utilisateur.
+        Paramètres :
+            $name (string) : Le prénom de l'utilisateur.
+            $surname (string) : Le nom de famille de l'utilisateur.
+            $email (string) : L'adresse e-mail de l'utilisateur.
+            $password (string) : Le mot de passe de l'utilisateur.
+
+    setName(string $name) :
+        Définit le prénom de l'utilisateur.
+        Paramètres :
+            $name (string) : Le prénom de l'utilisateur.
+        Retour : void.
+
+    getName() :
+        Récupère le prénom de l'utilisateur.
+        Retour : string.
+
+    setSurname(string $surname) :
+        Définit le nom de famille de l'utilisateur.
+        Paramètres :
+            $surname (string) : Le nom de famille de l'utilisateur.
+        Retour : void.
+
+    getSurname() :
+        Récupère le nom de famille de l'utilisateur.
+        Retour : string.
+
+    setEmail(string $email) :
+        Définit l'adresse e-mail de l'utilisateur.
+        Paramètres :
+            $email (string) : L'adresse e-mail de l'utilisateur.
+        Retour : void.
+
+    getEmail() :
+        Récupère l'adresse e-mail de l'utilisateur.
+        Retour : string.
+
+    setPassword(string $password) :
+        Définit le mot de passe de l'utilisateur.
+        Paramètres :
+            $password (string) : Le mot de passe de l'utilisateur.
+        Retour : void.
+
+    getPassword() :
+        Récupère le mot de passe de l'utilisateur.
+        Retour : string.
+
+    setEmailValidated(bool $emailValidated) :
+        Définit si l'e-mail de l'utilisateur est validé.
+        Paramètres :
+            $emailValidated (bool) : Indique si l'e-mail est validé.
+        Retour : void.
+
+    getEmailValidated() :
+        Récupère l'état de validation de l'e-mail de l'utilisateur.
+        Retour : bool.
+
+    setConnected(bool $connected) :
+        Définit si l'utilisateur est connecté.
+        Paramètres :
+            $connected (bool) : Indique si l'utilisateur est connecté.
+        Retour : void.
+
+    getConnected() :
+        Récupère l'état de connexion de l'utilisateur.
+        Retour : bool.
+
+    setStatus(string $status) :
+        Définit le statut de l'utilisateur.
+        Paramètres :
+            $status (string) : Le statut de l'utilisateur.
+        Retour : void.
+
+    getStatus() :
+        Récupère le statut de l'utilisateur.
+        Retour : string.
+
+    hashPassword($password = null) :
+        Hash le mot de passe en utilisant l'algorithme de hachage par défaut de PHP. Si un mot de passe est fourni en paramètre, c'est celui-ci qui sera hashé. Sinon, c'est la propriété `$password` de l'objet qui sera hashée.
+        Paramètres :
+            $password (string|null) : Le mot de passe à hasher. Si `null`, la méthode hashe la propriété `$password` de l'objet. (optionnel)
+        Retour : void.
