@@ -1,6 +1,12 @@
 <?php
 declare(strict_types = 1);
 include 'includes/autoLoader.php';
+
+session_start();
+
+$message = isset($_SESSION['result']) ? $_SESSION['result'] : '';
+
+unset($_SESSION['result']);
 ?>
 
 <!doctype html>
@@ -40,6 +46,14 @@ include 'includes/autoLoader.php';
           <section class="col-6">
             <h2>S'inscrire</h2>
             <form action="includes/register.php" method="post" novalidate>
+
+            
+              <?php if ($message): ?>
+                <div class="alert alert-info" role="alert">
+                  <?php echo htmlspecialchars($message); ?>
+                </div>
+              <?php endif; ?>
+
               <section class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name" required maxLength="50">
@@ -64,7 +78,7 @@ include 'includes/autoLoader.php';
               </section>
               <section class="mb-3">
                 <section class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                  <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="terms" required>
                   <label class="form-check-label" for="flexCheckDefault">
                     I agree to the terms and conditions
                   </label>

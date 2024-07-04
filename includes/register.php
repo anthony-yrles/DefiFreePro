@@ -9,6 +9,8 @@
  * @package  Register_Script
  */
 
+ session_start();
+
 // Check if the form was submitted
 if (isset($_POST['submit'])) {
     // Include the autoloader
@@ -20,11 +22,25 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $passwordRepeat = $_POST['passwordRepeat'];
+    $terms = isset($_POST['terms']) ? $_POST['terms'] : '';
 
-    // Create a new Controller object
-    $controller = new Controller("localhost", "root", "", "testfreepro"); 
-    // Call the createUser method to save the user in the database
-    $result = $controller->testUser($name, $surname, $email, $password, $passwordRepeat); 
+    if ($terms !== '1') {
+        $_SESSION['result'] = 'You need to accept the terms and conditions';
+        header('Location: ../index.php');
+        exit();
+    }
+
+    // Create a new Controller object and a View object
+    $controller = new Controller("localhost", "root", "", "testfreepro");
+    // Call the testUser from controller method to check if the data are good and call the createUser method from Model
+    $controller->testUser($name, $surname, $email, $password, $passwordRepeat);
+    // Store the result in a session variable
+    $_SESSION['result'] = $controller->getResult();
+
+    // Redirect to the index page
+    header('Location: ../index.php');
+    exit();
+
 } else {
     // If someone tries to access this script directly, redirect them to the login page
     header('Location: ../index.php');
