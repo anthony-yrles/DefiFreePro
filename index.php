@@ -25,41 +25,54 @@ include 'includes/autoLoader.php';
         <section class="row">
           <section class="col-6">
             <h2>Se connecter</h2>
-            <form action="includes/login.php" method="post">
+            <form action="includes/login.php" method="post" novalidate>
               <section class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" required>
               </section>
               <section class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" required autocomplete="new-password">
               </section>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </section>
           <section class="col-6">
             <h2>S'inscrire</h2>
-            <form action="includes/register.php" method="post">
+            <form action="includes/register.php" method="post" novalidate>
               <section class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" required maxLength="50">
               </section>
               <section class="mb-3">
                 <label for="surname" class="form-label">Surname</label>
-                <input type="text" class="form-control" id="surname" name="surname">
+                <input type="text" class="form-control" id="surname" name="surname" required maxLength="50">
               </section>
               <section class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxLength="100">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </section>
               <section class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" required autocomplete="new-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" maxLength="50">
+                <small id="passwordHelp" class="form-text text-muted">Your password have to be at least 8 characters long and contain 1 capital / minus / number / special</small>
               </section>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <section class="mb-3">
+                <label for="passwordRepeat" class="form-label">Repeat Password</label>
+                <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" required autocomplete="new-password" maxLength="50">
+              </section>
+              <section class="mb-3">
+                <section class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                  <label class="form-check-label" for="flexCheckDefault">
+                    I agree to the terms and conditions
+                  </label>
+                </section>
+              </section>
+              <button type="submit" name="submit" class="btn btn-primary mt-2">Submit</button>
             </form>
           </section>
-        </section>
         </section>
       </section>
     </section>

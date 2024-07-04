@@ -11,7 +11,7 @@
 
 spl_autoload_register(function (string $class) {
   // Include the class file if it exists
-  $path = 'classes/' . $class . '.php';
+  $path = '../classes/' . $class . '.php';
 
   // Check if the file exists
   if (!file_exists($path)) {
