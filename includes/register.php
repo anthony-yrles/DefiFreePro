@@ -20,6 +20,9 @@ if (isset($_POST['submit'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
+  $controller = new Controller(); // Create a new Controller object
+  $controller->createUser($name, $surname, $email, $password); // Call the createUser method that will save the user in the database
+
 } else {
   // If someone tries to access this script directly, redirect them to the login page
   header('Location: ../index.php');

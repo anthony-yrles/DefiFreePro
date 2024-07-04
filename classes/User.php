@@ -80,14 +80,5 @@ class User {
     }
     public function getStatus() {
         return $this->status;
-    }
-
-    //Method to hash the password this method can take a newpassword as parameter or use the password property
-    public function hashPassword($password = null) {
-        if ($password === null) {
-            $password = $this->password;
-        }
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
-    }
-    
+    }  
 }

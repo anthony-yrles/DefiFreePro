@@ -11,11 +11,11 @@
 class Db {
 
     // Properties
-    private $host;
-    private $username;
-    private $password;
-    private $database;
-    private $connection;
+    protected $host;
+    protected $username;
+    protected $password;
+    protected $database;
+    protected $connection;
 
     // Constructor to initialize properties
     public function __construct(string $host, string $username, string $password, string $database) {
