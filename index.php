@@ -25,7 +25,7 @@ include 'includes/autoLoader.php';
         <section class="row">
           <section class="col-6">
             <h2>Se connecter</h2>
-            <form action="login.php" method="post">
+            <form action="includes/login.php" method="post">
               <section class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" name="email">
@@ -39,7 +39,7 @@ include 'includes/autoLoader.php';
           </section>
           <section class="col-6">
             <h2>S'inscrire</h2>
-            <form action="register.php" method="post">
+            <form action="includes/register.php" method="post">
               <section class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name">
