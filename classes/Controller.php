@@ -10,6 +10,7 @@
 class Controller extends Model {
 
     protected $result;
+    protected $alert;
 
     // Constructor to initialize properties and call parent constructor
     public function __construct(string $host, string $username, string $password, string $database) {
@@ -46,15 +47,22 @@ class Controller extends Model {
     }
 
     // Use all th 5 preceding methods to create a new user in the database, if any of the checks fail, an error message is displayed
-    public function testUser($name, $surname, $email, $password, $passwordRepeat) {
+    public function testUser($name, $surname, $email, $password, $passwordRepeat, $terms) {
         if ($this->emptyFields($name, $surname, $email, $password, $passwordRepeat)) {
             $this->result = 'You need to fill in all the fields';
+            $this->alert = true;
         } elseif ($this->invalidEmail($email)) {
             $this->result = 'The email is invalid';
+            $this->alert = true;
         } elseif (!$this->checkPassword($password)) {
             $this->result = 'Your password do not meet the requirements';
+            $this->alert = true;
         } elseif ($this->passwordMatch($password, $passwordRepeat)) {
             $this->result = 'The two passwords are not the same';
+            $this->alert = true;
+        } elseif ($terms !== '1') {
+            $this->result = 'You need to accept the terms and conditions';
+            $this->alert = true;
         } else {
             $this->connectDB();
             $hashedPassword = $this->hashPassword($password);
@@ -67,6 +75,11 @@ class Controller extends Model {
     // Method to get the result
     function getResult() {
         return $this->result;
+    }
+
+    // Method to get the alert
+    function getAlert() {
+        return $this->alert;
     }
 
     // Method to get a user, this method receives the email and password of the user

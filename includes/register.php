@@ -24,18 +24,13 @@ if (isset($_POST['submit'])) {
     $passwordRepeat = $_POST['passwordRepeat'];
     $terms = isset($_POST['terms']) ? $_POST['terms'] : '';
 
-    if ($terms !== '1') {
-        $_SESSION['result'] = 'You need to accept the terms and conditions';
-        header('Location: ../index.php');
-        exit();
-    }
-
     // Create a new Controller object and a View object
     $controller = new Controller("localhost", "root", "", "testfreepro");
     // Call the testUser from controller method to check if the data are good and call the createUser method from Model
-    $controller->testUser($name, $surname, $email, $password, $passwordRepeat);
+    $controller->testUser($name, $surname, $email, $password, $passwordRepeat, $terms);
     // Store the result in a session variable
     $_SESSION['result'] = $controller->getResult();
+    $_SESSION['alert'] = $controller->getAlert();
 
     // Redirect to the index page
     header('Location: ../index.php');

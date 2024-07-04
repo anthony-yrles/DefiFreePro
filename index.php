@@ -5,6 +5,7 @@ include 'includes/autoLoader.php';
 session_start();
 
 $message = isset($_SESSION['result']) ? $_SESSION['result'] : '';
+$alert = isset($_SESSION['alert']) ? $_SESSION['alert'] : false;
 
 unset($_SESSION['result']);
 ?>
@@ -49,9 +50,15 @@ unset($_SESSION['result']);
 
             
               <?php if ($message): ?>
-                <div class="alert alert-info" role="alert">
-                  <?php echo htmlspecialchars($message); ?>
-                </div>
+                <?php if ($alert === true): ?>
+                  <section class="alert alert-danger" role="alert">
+                    <?php echo htmlspecialchars($message); ?>
+                  </section>
+                <?php else: ?>
+                  <section class="alert alert-success" role="alert">
+                    <?php echo htmlspecialchars($message); ?>
+                  </section>
+                <?php endif; ?>
               <?php endif; ?>
 
               <section class="mb-3">
