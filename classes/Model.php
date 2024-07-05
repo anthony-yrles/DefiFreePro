@@ -28,7 +28,6 @@ class Model extends Db {
 
     // Method to create a user, this method receive the name, surname, email and password of the user
     public function createUser($name, $surname, $email, $password) {
-        // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (name, surname, email, password) VALUES ('$name', '$surname', '$email', '$password')";
         $this->query($sql);
     }
@@ -42,5 +41,20 @@ class Model extends Db {
             $users[] = $row;
         }
         return $users;
+    }
+
+    public function createNotification($id_user) {
+        $sql = "INSERT INTO notifications (id_user) VALUES ('$id_user')";
+        $this->query($sql);
+    }
+
+    public function getNotification() {
+        $sql = "SELECT * FROM notifications";
+        $result = $this->query($sql);
+        $notifications = [];
+        while ($row = $this->fetch($result)) {
+            $notifications[] = $row;
+        }
+        return $notifications;
     }
 }

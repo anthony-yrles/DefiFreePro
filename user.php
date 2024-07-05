@@ -35,7 +35,7 @@ unset($_SESSION['nameFirstname']);
             <?php if ($accountValidate === '0'): ?>
                 <p class="mt-4">Your account is not validated yet</p>
                 <form action="includes/validateAccount.php" method="post" novalidate>
-                    <button type="submit" name="submit" class="btn btn-primary col-6 offset-3">Send a notification to the admin to validate
+                    <button type="submit" name="submitSend" class="btn btn-primary col-6 offset-3">Send a notification to the admin to validate
                         your account</button>
                 </form>
             <?php endif; ?>

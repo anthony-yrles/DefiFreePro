@@ -19,6 +19,7 @@
 class User {
 
     // Properties
+    private $id;
     private $name;
     private $surname;
     private $email;
@@ -27,7 +28,8 @@ class User {
     private $accountValidate;
 
     // Constructor to initialize properties
-    public function __construct(string $name, string $surname, string $email, string $password, string $status, string $accountValidate) {
+    public function __construct(int $id, string $name, string $surname, string $email, string $password, string $status, string $accountValidate) {
+        $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
@@ -37,6 +39,10 @@ class User {
     }
 
     // Setter and getter for properties
+
+    public function getId() {
+        return $this->id;
+    }
     public function setName(string $name) {
         $this->name = $name;
     }

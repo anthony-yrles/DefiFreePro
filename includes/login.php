@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
     if ($user) {
         $_SESSION['nameFirstname'] = $user->getName() . " " . $user->getSurname(); // Store the user's name and surname in a session variable
         $_SESSION['accountValidate'] = $user->getAccountValidate(); // Store the account validation status in a session variable
+        $_SESSION['id'] = $user->getId(); // Store the user's ID in a session variable
         $view->userOrAdmin($user);
     } else {
         $_SESSION['result'] = 'User not found'; // Store an error message in a session variable

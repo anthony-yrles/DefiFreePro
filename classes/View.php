@@ -22,7 +22,7 @@ class View extends Controller {
                 
                 // Utilisation de password_verify pour comparer le mot de passe en clair avec le hachage stocké
                 if ($value["email"] == $email && $value["password"] == $password) {
-                    $user = new User($value["name"], $value["surname"], $value["email"], $value["password"], $value["status"], $value["accountValidate"]);
+                    $user = new User($value['id'], $value["name"], $value["surname"], $value["email"], $value["password"], $value["status"], $value["accountValidate"]);
                     return $user;
                 }
             }

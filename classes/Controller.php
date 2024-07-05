@@ -85,10 +85,31 @@ class Controller extends Model {
         if (empty($userData)) {
             $this->result = 'The email or password is incorrect';
             $this->alert = true;
-            return null; // Make sure to return null if no user data is found
+            return null;
         } else {
             $this->result = 'You are logged in';
             return $userData;
+        }
+    }
+
+    public function newNotification($id_user) {
+        $this->connectDB();
+        $this->createNotification($id_user);
+        $this->disconnectDB();
+        $this->result = 'Notification created';
+    }
+
+    public function readNotification() {
+        $this->connectDB();
+        $notificationData = $this->getNotification();
+        $this->disconnectDB();
+        if (empty($notificationData)) {
+            $this->result = 'No notifications found';
+            $this->alert = true;
+            return null;
+        } else {
+            $this->result = 'Notifications found';
+            return $notificationData;
         }
     }
 }
