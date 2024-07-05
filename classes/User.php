@@ -24,14 +24,16 @@ class User {
     private $email;
     private $password;
     private $status;
+    private $accountValidate;
 
     // Constructor to initialize properties
-    public function __construct(string $name, string $surname, string $email, string $password, string $status) {
+    public function __construct(string $name, string $surname, string $email, string $password, string $status, string $accountValidate) {
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
         $this->password = $password;
-        $this->status = 'user';
+        $this->status = $status;
+        $this->accountValidate = $accountValidate;
     }
 
     // Setter and getter for properties
@@ -65,5 +67,12 @@ class User {
     }
     public function getStatus() {
         return $this->status;
-    }  
+    }
+
+    public function setAccountValidate(string $accountValidate) {
+        $this->accountValidate = $accountValidate;
+    }
+    public function getAccountValidate() {
+        return $this->accountValidate;
+    }
 }

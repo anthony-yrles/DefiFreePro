@@ -28,6 +28,7 @@ class Model extends Db {
 
     // Method to create a user, this method receive the name, surname, email and password of the user
     public function createUser($name, $surname, $email, $password) {
+        // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (name, surname, email, password) VALUES ('$name', '$surname', '$email', '$password')";
         $this->query($sql);
     }

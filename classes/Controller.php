@@ -18,17 +18,13 @@ class Controller extends Model {
     }
 
     /*
-    * 5 fiddérents méthods that will be used to validate the user input and create a new user
-    * 1. hashPassword: Hash the password using the PASSWORD_DEFAULT algorithm
-    * 2. emptyFields: Check if any of the fields are empty
-    * 3. invalidEmail: Check if the email is valid
-    * 4. checkPassword: Check if the password meets the requirements
-    * 5. passwordMatch: Check if the password and passwordRepeat match
+    * 4 fiddérents méthods that will be used to validate the user input and create a new user
+    * 1. emptyFields: Check if any of the fields are empty
+    * 2. invalidEmail: Check if the email is valid
+    * 3. checkPassword: Check if the password meets the requirements
+    * 4. passwordMatch: Check if the password and passwordRepeat match
     */
 
-    public function hashPassword($password) {
-        return password_hash($password, PASSWORD_DEFAULT);
-    }
     private function emptyFields($name, $surname, $email, $password, $passwordRepeat) {
         return empty($name) || empty($surname) || empty($email) || empty($password) || empty($passwordRepeat);
     }
@@ -46,7 +42,7 @@ class Controller extends Model {
         return $password !== $passwordRepeat;
     }
 
-    // Use all th 5 preceding methods to create a new user in the database, if any of the checks fail, an error message is displayed
+    // Use all th 4 preceding methods to create a new user in the database, if any of the checks fail, an error message is displayed
     public function testUser($name, $surname, $email, $password, $passwordRepeat, $terms) {
         if ($this->emptyFields($name, $surname, $email, $password, $passwordRepeat)) {
             $this->result = 'You need to fill in all the fields';
@@ -65,8 +61,7 @@ class Controller extends Model {
             $this->alert = true;
         } else {
             $this->connectDB();
-            $hashedPassword = $this->hashPassword($password);
-            $this->createUser($name, $surname, $email, $hashedPassword);
+            $this->createUser($name, $surname, $email, $password);
             $this->disconnectDB();
             $this->result = 'Your registration is successful';
         }
@@ -87,9 +82,10 @@ class Controller extends Model {
         $this->connectDB();
         $userData = $this->getUser();
         $this->disconnectDB();
-        if ($userData === null) {
+        if (empty($userData)) {
             $this->result = 'The email or password is incorrect';
             $this->alert = true;
+            return null; // Make sure to return null if no user data is found
         } else {
             $this->result = 'You are logged in';
             return $userData;

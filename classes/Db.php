@@ -1,5 +1,9 @@
 <?php
 
+ini_set('log_errors', 1);
+ini_set('error_log', '../error.log'); // Spécifiez le chemin vers votre fichier de log
+error_reporting(E_ALL);
+
 /**
  * Class Db for database operations:
  * - connection to the database
