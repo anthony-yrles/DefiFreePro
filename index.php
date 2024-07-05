@@ -9,6 +9,7 @@ $alert = isset($_SESSION['alert']) ? $_SESSION['alert'] : false;
 
 unset($_SESSION['result']);
 unset($_SESSION['alert']);
+
 ?>
 
 <!doctype html>
@@ -34,6 +35,19 @@ unset($_SESSION['alert']);
           <section class="col-6">
             <h2>Se connecter</h2>
             <form action="includes/login.php" method="post" novalidate>
+
+              <?php if ($message): ?>
+                <?php if ($alert === true): ?>
+                  <section class="alert alert-danger" role="alert">
+                    <?php echo htmlspecialchars($message); ?>
+                  </section>
+                <?php else: ?>
+                  <section class="alert alert-success" role="alert">
+                    <?php echo htmlspecialchars($message); ?>
+                  </section>
+                <?php endif; ?>
+              <?php endif; ?>
+
               <section class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" name="email" required>
@@ -42,7 +56,7 @@ unset($_SESSION['alert']);
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required autocomplete="new-password">
               </section>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
           </section>
           <section class="col-6">

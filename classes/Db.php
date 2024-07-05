@@ -9,7 +9,6 @@
  */
 
 class Db {
-
     // Properties
     protected $host;
     protected $username;
@@ -27,6 +26,7 @@ class Db {
     
     // Method to connect to the database
     public function connect() {
+        error_log('Connecting to database');
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
         if ($this->connection->connect_error) {
             die("Connection failed: " . $this->connection->connect_error);
@@ -35,16 +35,19 @@ class Db {
 
     // Method to disconnect from the database
     public function disconnect() {
+        error_log('Disconnecting from database');
         $this->connection->close();
     }
 
     // Method to execute a query
     public function query($sql) {
+        error_log('Executing query: ' . $sql);
         return $this->connection->query($sql);
     }
 
     // Method to fetch results
     public function fetch($result) {
+        error_log('Fetching result');
         return $result->fetch_assoc();
     }
-}
+} 

@@ -17,6 +17,8 @@ unset($_SESSION['nameFirstname']);
     <title>Defi FreePro</title>
 </head>
 <body>
+    <h1>Welcome <?php echo $nameFirstname; ?></h1>
+    <a href="includes/logout.php">Logout</a>
     
 </body>
 </html>

@@ -15,14 +15,14 @@ class View extends Controller {
 
     // Method to get user data and create a User object
     public function getDataAndCreateUser($email, $password) {
-        
-        $userData = $this->getUser();
-        foreach ($userData as $key => $value) {
+        $userData = $this->getUserFromModel();  // Assure that this method returns an array
+        foreach ($userData as $value) {
             if ($value["email"] == $email && password_verify($password, $value["password"])) {
                 $user = new User($value["name"], $value["surname"], $value["email"], $value["password"], $value["status"]);
                 return $user;
             }
         }
+        return null; // Return null if no user is found
     }
 
     public function userOrAdmin($user) {

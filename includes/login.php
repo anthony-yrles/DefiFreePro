@@ -21,7 +21,16 @@ if (isset($_POST['submit'])) {
 
     $view = new View("localhost", "root", "", "testfreepro"); // Create a new Controller object
     $user = $view->getDataAndCreateUser($email, $password); // Get the user data and create a User object
-    $view->userOrAdmin($user); // Check if the user is an admin or a user
+
+    // Check if a user was found and proceed accordingly
+    if ($user) {
+        $view->userOrAdmin($user);
+    } else {
+        $_SESSION['result'] = 'User not found'; // Store an error message in a session variable
+        $_SESSION['alert'] = true; // Store an alert in a session variable
+        header('Location: ../index.php');
+        exit;
+    }
 
     $_SESSION['nameFirstname'] = $user->getName() . " " . $user->getSurname(); // Store the user's name and surname in a session variable
     
