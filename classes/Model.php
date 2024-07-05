@@ -33,8 +33,8 @@ class Model extends Db {
     }
 
     // Method to get a user, this method receive the email and password of the user
-    public function getUser($email, $password) {
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    public function getUser() {
+        $sql = "SELECT * FROM users";
         return $this->fetch($this->query($sql));
     }
 }

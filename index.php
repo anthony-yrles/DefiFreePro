@@ -8,6 +8,7 @@ $message = isset($_SESSION['result']) ? $_SESSION['result'] : '';
 $alert = isset($_SESSION['alert']) ? $_SESSION['alert'] : false;
 
 unset($_SESSION['result']);
+unset($_SESSION['alert']);
 ?>
 
 <!doctype html>

@@ -23,18 +23,14 @@ class User {
     private $surname;
     private $email;
     private $password;
-    private $emailValidated;
-    private $connected;
     private $status;
 
     // Constructor to initialize properties
-    public function __construct(string $name, string $surname, string $email, string $password) {
+    public function __construct(string $name, string $surname, string $email, string $password, string $status) {
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
         $this->password = $password;
-        $this->emailValidated = false;
-        $this->connected = false;
         $this->status = 'user';
     }
 
@@ -63,18 +59,7 @@ class User {
     public function getPassword() {
         return $this->password;
     }
-    public function setEmailValidated(string $emailValidated) {
-        $this->emailValidated = $emailValidated;
-    }
-    public function getEmailValidated() {
-        return $this->emailValidated;
-    }
-    public function setConnected(string $connected) {
-        $this->connected = $connected;
-    }
-    public function getConnected() {
-        return $this->connected;
-    }
+
     public function setStatus(string $status) {
         $this->status = $status;
     }

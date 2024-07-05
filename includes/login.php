@@ -8,6 +8,8 @@
  * @package  Login_Script
  */
 
+session_start();
+
 // Check if the form was submitted
 if (isset($_POST['submit'])) {
     // Include the autoloader
@@ -17,11 +19,16 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $controller = new Controller(); // Create a new Controller object
-    $user = $controller->getUser($email, $password); // Call the getUser method that will get the user from the database
-    header('Location: ../userAccount.php'); // Redirect the user to the user account page
+    $view = new View("localhost", "root", "", "testfreepro"); // Create a new Controller object
+    $user = $view->getDataAndCreateUser($email, $password); // Get the user data and create a User object
+    $view->userOrAdmin($user); // Check if the user is an admin or a user
+
+    $_SESSION['nameFirstname'] = $user->getName() . " " . $user->getSurname(); // Store the user's name and surname in a session variable
+    
+    exit;
 
 } else {
     // If someone tries to access this script directly, redirect them to the login page
     header('Location: ../index.php');
+    exit;
 }

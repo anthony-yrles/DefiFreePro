@@ -83,10 +83,15 @@ class Controller extends Model {
     }
 
     // Method to get a user, this method receives the email and password of the user
-    public function getUser($email, $password) {
+    public function getUser() {
         $this->connectDB();
-        $user = $this->getUser($email, $password);
-        $this->disconnectDB();
-        return $user;
+        $userData = $this->getUser();
+        if ($userData === null) {
+            $this->result = 'The email or password is incorrect';
+            $this->alert = true;
+        } else {
+            $this->result = 'You are logged in';
+            return $userData;
+        }
     }
 }
