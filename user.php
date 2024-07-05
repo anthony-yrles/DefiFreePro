@@ -28,17 +28,20 @@ unset($_SESSION['nameFirstname']);
 
 <body>
     <section class="container mt-5">
-        <section class="row">
+        <section class="row text-center">
             <section class="col-12 bg-dark text-light text-center">
                 <h1>Welcome <?php echo $nameFirstname; ?></h1>
             </section>
+            <?php if ($accountValidate === '0'): ?>
+                <p class="mt-4">Your account is not validated yet</p>
+                <form action="includes/validateAccount.php" method="post" novalidate>
+                    <button type="submit" name="submit" class="btn btn-primary col-6 offset-3">Send a notification to the admin to validate
+                        your account</button>
+                </form>
+            <?php endif; ?>
+            <a href="index.php" class="col-1 offset-11">Logout</a>
         </section>
-        <?php if ($accountValidate === '0'): ?>
-            <p>Your account is not validated yet</p>
-            <button>Send a notification to the admin to validate your account</button>
-        <?php endif; ?>
     </section>
-    <a href="index.php">Logout</a>
     </section>
 </body>
 
