@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Autoloader for classes
  * 
@@ -8,15 +7,12 @@
  * @param string $class The class name
  * @return void
  */
-
 spl_autoload_register(function (string $class) {
   // Include the class file if it exists
-  $path = '../classes/' . $class . '.php';
+  $path = __DIR__ . '/../classes/' . $class . '.php';
 
   // Check if the file exists
-  if (!file_exists($path)) {
-    return false; // Return false to move to the next autoloader
-  } else {
+  if (file_exists($path)) {
     include $path; // Include the file
   }
 });

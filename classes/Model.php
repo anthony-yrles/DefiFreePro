@@ -52,9 +52,12 @@ class Model extends Db {
         $sql = "SELECT * FROM notifications";
         $result = $this->query($sql);
         $notifications = [];
+        
         while ($row = $this->fetch($result)) {
             $notifications[] = $row;
         }
+        
         return $notifications;
     }
+    
 }

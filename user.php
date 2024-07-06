@@ -14,6 +14,7 @@ $nameFirstname = isset($_SESSION['nameFirstname']) ? $_SESSION['nameFirstname'] 
 $accountValidate = isset($_SESSION['accountValidate']) ? $_SESSION['accountValidate'] : '';
 
 unset($_SESSION['nameFirstname']);
+unset($_SESSION['accountValidate']);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,6 @@ unset($_SESSION['nameFirstname']);
             <?php endif; ?>
             <a href="index.php" class="col-1 offset-11">Logout</a>
         </section>
-    </section>
     </section>
 </body>
 

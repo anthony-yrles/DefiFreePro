@@ -41,4 +41,18 @@ class View extends Controller {
             header("Location: ../index.php");
         }
     }
+
+    public function notification() {
+    $notifications = $this->readNotification();
+    $notificationList = [];
+    
+    foreach ($notifications as $value) {
+        $notification = new Notification($value['id'], $value['id_user'], $value['status']);
+        $notificationList[] = $notification;
+    }
+    
+    return $notificationList;
+}
+
+    
 }
