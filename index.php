@@ -9,7 +9,10 @@ $alert = isset($_SESSION['alert']) ? $_SESSION['alert'] : false;
 
 unset($_SESSION['result']);
 unset($_SESSION['alert']);
-
+unset($_SESSION['nameFirstname']);
+unset($_SESSION['unreadNotificationList']);
+unset($_SESSION['id']);
+unset($_SESSION['product']);
 ?>
 
 <!doctype html>

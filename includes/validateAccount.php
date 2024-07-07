@@ -7,6 +7,8 @@ if (isset($_POST['submitSend'])) {
 
     $controller = new Controller('localhost', 'root', '', 'testfreepro');
     $controller->newNotification($_SESSION['id']);
+
+    header('Location: ../user.php');
     
 } elseif (isset($_POST['checkNotif'])) {
     require 'autoLoader.php';
@@ -21,6 +23,8 @@ if (isset($_POST['submitSend'])) {
         
         if ($notification->getStatus() === '0' || $notification->getStatus() === 0) {
             $unreadNotificationsList[] = $notification;
+            $controller = new Controller('localhost', 'root', '', 'testfreepro');
+            $controller->notificationOk($notification->getId());
         }
     }
 

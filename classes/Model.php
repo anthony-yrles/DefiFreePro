@@ -65,6 +65,11 @@ class Model extends Db {
         return $notifications;
     }
 
+    public function notificationTraited($id) {
+        $sql = "UPDATE notifications SET status = '1' WHERE id = '$id'";
+        $this->query($sql);
+    }
+
     public function setProduct($id_user, $pop, $delta, $mini4k, $deuxEuros, $centquarante, $illimite) {
         $sql = "INSERT INTO products (id_user, pop, delta, mini4k, deuxEuros, centquarante, illimite) VALUES ('$id_user', '$pop', '$delta', '$mini4k', '$deuxEuros', '$centquarante', '$illimite')";
         $this->query($sql);
@@ -77,8 +82,7 @@ class Model extends Db {
         
         while ($row = $this->fetch($result)) {
             $products[] = $row;
-        }
-        
+        }   
         return $products;
     }
     

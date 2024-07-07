@@ -12,8 +12,6 @@ if (!isset($_SESSION['nameFirstname'])) {
 
 $nameFirstname = isset($_SESSION['nameFirstname']) ? $_SESSION['nameFirstname'] : '';
 $unreadNotificationsList = isset($_SESSION['unreadNotificationList']) ? $_SESSION['unreadNotificationList'] : '';
-
-unset($_SESSION['unreadNotificationList']);
 ?>
 
 <!DOCTYPE html>

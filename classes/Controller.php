@@ -115,6 +115,12 @@ class Controller extends Model {
         }
     }
 
+    public function notificationOk($id) {
+        $this->connectDB();
+        $this->notificationTraited($id);
+        $this->disconnectDB();
+    }
+
     public function newProduct($id_user, $pop, $delta, $mini4k, $deuxEuros, $centquarante, $illimite) {
         $this->connectDB();
         $this->setProduct($id_user, $pop, $delta, $mini4k, $deuxEuros, $centquarante, $illimite);

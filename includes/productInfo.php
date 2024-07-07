@@ -15,6 +15,7 @@ if (isset($_POST['submitProduct'])) {
 
     $controller = new Controller('localhost', 'root', '', 'testfreepro');
     $controller->newProduct($idUser, $pop, $delta, $mini4K, $deuxEuros, $centquarante, $illimite);
+    $controller->accountValidate($idUser);
 
     header('Location: ../admin.php');
     exit();
