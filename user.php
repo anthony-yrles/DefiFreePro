@@ -4,11 +4,11 @@ include 'includes/autoLoader.php';
 
 session_start();
 
-// if (!isset($_SESSION['nameFirstname'])) {
-//     // Rediriger vers la page de connexion ou afficher un message d'erreur
-//     header('Location: index.php');
-//     exit();
-// }
+if (!isset($_SESSION['nameFirstname'])) {
+    // Rediriger vers la page de connexion ou afficher un message d'erreur
+    header('Location: index.php');
+    exit();
+}
 
 $nameFirstname = isset($_SESSION['nameFirstname']) ? $_SESSION['nameFirstname'] : '';
 $accountValidate = isset($_SESSION['accountValidate']) ? $_SESSION['accountValidate'] : '';

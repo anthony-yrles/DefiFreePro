@@ -67,6 +67,12 @@ class Controller extends Model {
         }
     }
 
+    public function accountValidate($id) {
+        $this->connectDB();
+        $this->modifyAccountValidate($id);
+        $this->disconnectDB();
+    }
+
     // Method to get the result
     function getResult() {
         return $this->result;
@@ -87,7 +93,6 @@ class Controller extends Model {
             $this->alert = true;
             return null;
         } else {
-            $this->result = 'You are logged in';
             return $userData;
         }
     }
@@ -104,12 +109,26 @@ class Controller extends Model {
         $notificationData = $this->getNotification();
         $this->disconnectDB();
         if (empty($notificationData)) {
-            $this->result = 'No notifications found';
-            $this->alert = true;
             return null;
         } else {
-            $this->result = 'Notifications found';
             return $notificationData;
+        }
+    }
+
+    public function newProduct($id_user, $pop, $delta, $mini4k, $deuxEuros, $centquarante, $illimite) {
+        $this->connectDB();
+        $this->setProduct($id_user, $pop, $delta, $mini4k, $deuxEuros, $centquarante, $illimite);
+        $this->disconnectDB();
+    }
+
+    public function readProduct() {
+        $this->connectDB();
+        $productData = $this->getProduct();
+        $this->disconnectDB();
+        if (empty($productData)) {
+            return null;
+        } else {
+            return $productData;
         }
     }
 }

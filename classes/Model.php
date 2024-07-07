@@ -32,6 +32,11 @@ class Model extends Db {
         $this->query($sql);
     }
 
+    public function modifyAccountValidate($id) {
+        $sql = "UPDATE users SET accountValidate = '1' WHERE id = '$id'";
+        $this->query($sql);
+    }
+
     // Method to get a user, this method receive the email and password of the user
     public function getUser() {
         $sql = "SELECT * FROM users";
@@ -58,6 +63,23 @@ class Model extends Db {
         }
         
         return $notifications;
+    }
+
+    public function setProduct($id_user, $pop, $delta, $mini4k, $deuxEuros, $centquarante, $illimite) {
+        $sql = "INSERT INTO products (id_user, pop, delta, mini4k, deuxEuros, centquarante, illimite) VALUES ('$id_user', '$pop', '$delta', '$mini4k', '$deuxEuros', '$centquarante', '$illimite')";
+        $this->query($sql);
+    }
+
+    public function getProduct() {
+        $sql = "SELECT * FROM products";
+        $result = $this->query($sql);
+        $products = [];
+        
+        while ($row = $this->fetch($result)) {
+            $products[] = $row;
+        }
+        
+        return $products;
     }
     
 }
