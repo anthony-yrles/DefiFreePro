@@ -20,11 +20,8 @@ if (isset($_POST['submitSend'])) {
     $unreadNotificationsList = [];
 
     foreach ($notificationsList as $notification) {
-        
         if ($notification->getStatus() === '0' || $notification->getStatus() === 0) {
             $unreadNotificationsList[] = $notification;
-            $controller = new Controller('localhost', 'root', '', 'testfreepro');
-            $controller->notificationOk($notification->getId());
         }
     }
 
