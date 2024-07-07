@@ -93,7 +93,7 @@ $productSession = isset($_SESSION['product']) ? $_SESSION['product'] : '';
                         <h2 class="mt-5">Forfait 2€</h2>
                         <section class="row">
                             <section class="col-6 pa-2">
-                                <img src="./assets/images/forfait-2e.jpg" alt="Forfait 2€" class="img-thumbnail">
+                                <img src="./assets/images/forfait-2e.png" alt="Forfait 2€" class="img-thumbnail">
                             </section>
                             <section class="col-6 pa-2">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur assumenda voluptas,
@@ -107,7 +107,7 @@ $productSession = isset($_SESSION['product']) ? $_SESSION['product'] : '';
                         <h2 class="mt-5">Forfait 140Go</h2>
                         <section class="row">
                             <section class="col-6 pa-2">
-                                <img src="./assets/images/forfait-140go.jpg" alt="Forfait 140Go" class="img-thumbnail">
+                                <img src="./assets/images/forfait-140go.png" alt="Forfait 140Go" class="img-thumbnail">
                             </section>
                             <section class="col-6 pa-2">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur assumenda voluptas,
@@ -118,10 +118,10 @@ $productSession = isset($_SESSION['product']) ? $_SESSION['product'] : '';
                     <?php endif; ?>
 
                     <?php if ($productSession->getIllimite() === '1') : ?>
-                        <h2 class="mt-5">Forfait illimité</h2>
+                        <h2 class="mt-5">Forfait 5G</h2>
                         <section class="row">
                             <section class="col-6 pa-2">
-                                <img src="./assets/images/forfait-illimite.jpg" alt="Forfait illimité" class="img-thumbnail">
+                                <img src="./assets/images/forfait-5g.jpg" alt="Forfait illimité" class="img-thumbnail">
                             </section>
                             <section class="col-6 pa-2">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur assumenda voluptas,
