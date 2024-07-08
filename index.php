@@ -13,12 +13,12 @@ $message = isset($_SESSION['result']) ? $_SESSION['result'] : '';
 $alert = isset($_SESSION['alert']) ? $_SESSION['alert'] : false;
 
 // // Clear unused session variables.
-// unset($_SESSION['result']);
-// unset($_SESSION['alert']);
-// unset($_SESSION['nameFirstname']);
-// unset($_SESSION['unreadNotificationList']);
-// unset($_SESSION['id']);
-// unset($_SESSION['product']);
+unset($_SESSION['result']);
+unset($_SESSION['alert']);
+unset($_SESSION['nameFirstname']);
+unset($_SESSION['unreadNotificationList']);
+unset($_SESSION['id']);
+unset($_SESSION['product']);
 ?>
 
 <!doctype html>
