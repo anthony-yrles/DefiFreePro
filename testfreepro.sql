@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `id_user`, `status`) VALUES
-(4, 15, 0);
+(4, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -68,9 +68,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `id_user`, `pop`, `delta`, `mini4k`, `deuxEuros`, `centquarante`, `illimite`) VALUES
-(4, 13, 1, 1, 1, 0, 0, 1),
 (5, 15, 1, 1, 1, 1, 1, 1),
-(6, 15, 1, 0, 1, 0, 1, 0);
 
 -- --------------------------------------------------------
 
